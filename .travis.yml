@@ -15,6 +15,7 @@ before_install:
 - eval `ssh-agent -s`
 - ssh-add ~/.ssh/id_rsa
 - sudo apt-get install cmake swig build-essential
+- export BUILD_ID=`date +%Y%m%d_%H%M%S`
 install:
 - sh scripts/clone.sh
 - sh scripts/prepare.sh
