@@ -18,6 +18,11 @@ before_install:
 - export BUILD_ID=`date +%Y%m%d_%H%M%S`
 install:
 - sh scripts/clone.sh
+- cd target/monad
+- export BUILD_NUMBER=r`git log -n1 --pretty=format:%at | awk '{print strftime("%y%m%d%H%M",$1)}'`
+- export VERSION=`cat pom.xml|grep -e '<version>\(.*\)</version>'|head -n 1|sed  's/^.*<version>\(.*\)<\/version>/\1/g'`
+- echo "building form ${BUILD_NUMBER} with version ${VERSION} ...."
+- cd -
 - sh scripts/prepare.sh
 - sh scripts/compile_jni.sh
 - sh scripts/compile_java.sh
@@ -25,7 +30,14 @@ deploy:
   provider: releases
   api_key:
     secure: Vz46E/HexvI1poRgWT8YPo5sWXChlNNGY1HtYlBIxSWPBk4oGAcp6mDMvaANFyqXdeNVHcQR0HoC3KCysJKrEr7Kwhc54X2BCrFMq7sHuSysw9Y8GdFGhxL0kwJt514NgB7QkrzzbjytXKu9X+EcJX/UCtUCaXGq141/RO2k5tk=
-  file: asdf.targ.gz
+  file: 
+    - target/monad/monad-all/target/monad-api-${VERSION}-${BUILD_NUMBER}-bin.tar.gz
+    - target/monad/monad-all/target/monad-cloud-${VERSION}-${BUILD_NUMBER}-bin.tar.gz
+    - target/monad/monad-all/target/monad-group-${VERSION}-${BUILD_NUMBER}-bin.tar.gz
+    - target/monad/monad-all/target/monad-node-${VERSION}-${BUILD_NUMBER}-bin.tar.gz
+    - target/monad/monad-all/target/monad-sync-${VERSION}-${BUILD_NUMBER}-bin.tar.gz
+    - target/monad/monad-all/target/monad-web-${VERSION}-${BUILD_NUMBER}-bin.tar.gz
+    - target/monad/monad-all/target/dependencies/monad-core-${VERSION}.jar
   skip_cleanup: true
   on:
     tags: true
