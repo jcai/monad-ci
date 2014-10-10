@@ -24,9 +24,11 @@ deploy:
   provider: releases
   api_key:
     secure: Vz46E/HexvI1poRgWT8YPo5sWXChlNNGY1HtYlBIxSWPBk4oGAcp6mDMvaANFyqXdeNVHcQR0HoC3KCysJKrEr7Kwhc54X2BCrFMq7sHuSysw9Y8GdFGhxL0kwJt514NgB7QkrzzbjytXKu9X+EcJX/UCtUCaXGq141/RO2k5tk=
-  file: 
-    asdf.targ.gz
+  file: asdf.targ.gz
   skip_cleanup: true
   on:
     tags: true
     all_branches: true
+env:
+  global:
+    secure: UjP0lwB5RDl/1LsFFtZuaywR/vQmt7GpcS6xC0Wp4hY3ib+D0srlsT3lTeBB+jeKdD9PQ1nbLa5YEIlwrQ24LZ2wGa0RMmTUX+JxwPzh2N5vlKhcfwXesP8MIzgtVt4JMNcK+jlHPA1S17wipNnMoHEDvJxInpsoupCk70lpD4Y=
