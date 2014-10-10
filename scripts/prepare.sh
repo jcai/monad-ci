@@ -5,7 +5,8 @@ echo "Compling boost ...."
 wget "http://downloads.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.tar.bz2" -O /tmp/boost.tar.bz2
 tar xfj /tmp/boost.tar.bz2
 cd boost*
-sudo ./b2 cxxflags=-fPIC  --with-thread --with-system link=static threading=multi  install > /tmp/install.log
+./bootstrap.sh
+sudo ./b2 cxxflags=-fPIC  --with-thread --with-system link=static threading=multi  install
 cd -
 #zeromq 
 echo "Compling zmq ...."
@@ -39,7 +40,7 @@ wget https://protobuf.googlecode.com/svn/rc/protobuf-2.5.0.tar.gz
 tar xfz protobuf-2.5.0.tar.gz
 cd protobuf-2.5.0
 ./configure --with-pic --enable-static
-make
+make > /tmp/make.log
 sudo make install
 cd -
 
