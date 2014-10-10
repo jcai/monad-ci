@@ -1,2 +1,2 @@
-[maven-release-plugin] prepare release monad-core-4.0.6
- 33d442ad099490a48dac78ede6a6e5457cab8cc2
+[maven-release-plugin] prepare for next development iteration
+ 473a4250a8600028e18c7549e4601c9b977bfd2f
