@@ -1,2 +1,2 @@
-尝试修正编译错误
- e07820ac51ca4de09d236e4f50b56e5fefc186b7
+去掉对merge的设置操作
+ 783b15d89b45f84c8b852c820020d9a7fbebac74
