@@ -1,2 +1,2 @@
-用proguard的4.8版本
- e7b17ae2b56fd99969624dea29ce9064ab4e9905
+使用4.8的proguard
+ 94f3186f34c0902841ffebe8b4dba8d58e2bed4e
