@@ -1,5 +1,5 @@
-#compile nirvana jni
-cd target/nirvana
+#compile monad jni
+cd target/monad
 mkdir monad-c/build
 mkdir support/dll
 cd monad-c/build
