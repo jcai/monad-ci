@@ -18,8 +18,8 @@ before_install:
 install:
 - sh scripts/clone.sh
 - sh scripts/prepare.sh
-- sh scripts/compile_jni.sh
-- sh scripts/compile_java.sh
+#- sh scripts/compile_jni.sh
+#- sh scripts/compile_java.sh
 deploy:
   provider: releases
   api_key:
