@@ -1,2 +1,2 @@
-使用4.8的proguard
- 94f3186f34c0902841ffebe8b4dba8d58e2bed4e
+[maven-release-plugin] prepare release monad-core-4.0.6
+ 0bb46aece62d6bed17fee43e445f1e4adcdbdb3c
