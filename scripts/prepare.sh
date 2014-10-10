@@ -2,13 +2,13 @@ mkdir -p target
 cd target
 #install boost
 wget "http://downloads.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.tar.bz2" -O /tmp/boost.tar.bz2
-tar xfvj /tmp/boost.tar.bz2
+tar xfj /tmp/boost.tar.bz2
 cd boost*
 sudo ./b2 cxxflags=-fPIC  --with-thread --with-system link=static threading=multi  install
 cd -
 #zeromq 
 wget "http://download.zeromq.org/zeromq-3.2.4.tar.gz" -O /tmp/zmq.tar.gz
-tar xfvz zmq.tar.gz
+tar xfvz /tmp/zmq.tar.gz
 cd zeromq*
 ./configure --with-pic
 make
