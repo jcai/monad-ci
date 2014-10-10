@@ -1,2 +1,2 @@
-[maven-release-plugin] prepare for next development iteration
- 473a4250a8600028e18c7549e4601c9b977bfd2f
+尝试修正编译错误
+ e07820ac51ca4de09d236e4f50b56e5fefc186b7
