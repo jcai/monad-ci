@@ -3,6 +3,9 @@ cd target
 #install js-egf
 wget http://lichen.egfit.com/nirvana/js-egf-1.7R3.jar -O /tmp/js-egf-1.7R3.jar
 mvn install:install-file -Dfile=/tmp/js-egf-1.7R3.jar -DgroupId=rhino  -DartifactId=js-egf -Dversion=1.7R3 -Dpackaging=jar
+#install oracle driver
+wget http://lichen.egfit.com/nirvana/ojdbc14-10.2.0.3.jar -O /tmp/ojdbc14-10.2.0.3.jar
+mvn install:install-file -Dfile=/tmp/ojdbc14-10.2.0.3.jar -DgroupId=com.oracle -DartifactId=ojdbc14 -Dversion=10.2.0.3 -Dpackaging=jar
 #install boost
 echo "Compling boost ...."
 wget "http://downloads.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.tar.bz2" -O /tmp/boost.tar.bz2
