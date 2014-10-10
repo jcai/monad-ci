@@ -1,0 +1,37 @@
+language: java
+global:
+- secure: QJkoeIk5GU41c1ir/uZML6KgVDUoiw0K45sNal7rtW/uhRvT/HrmG3iLGmw8qcbMN4F16Tr/GITVkmUy20LiPitm8AjO4QOIXgjPKMOHpWfpQnBwgLCRJeDcIoxwouKpOmZYd7i0EURvvFFxn2LeksepSSAS/dgDVi/hqSZLx70=
+- secure: Xr1jaoe6cDB2GrSCsrh3mDy6M9DvfwjvzCWXAWl8O0uZggtNgY/f86/K7zBMlKjL4/hkXi+/BZnTXZWay9Azi97+Gt15WOcRZg1+JgnAJhOlJ5FM+fVoIotKPldjM1O56qoIuOdmE0OpPQiA19MNOJwz0deGost/3QVZMpObd+g=
+before_install:
+- echo $TRAVIS_BRANCH
+- echo $TRAVIS_TAG
+- echo $env.CI_DEPLOY_USERNAME
+- gcc --version
+- echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- echo -e "$SSH_KEY" > ~/.ssh/id_rsa.pub
+- echo -e "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+- chmod 600 ~/.ssh/id_rsa*
+- eval `ssh-agent -s`
+- ssh-add ~/.ssh/id_rsa
+- echo "machine bitbucket.org\n login $CI_DEPLOY_USERNAME\n password $CI_DEPLOY_PASSWORD\n"
+  >> ~/.netrc
+#- sudo apt-get install cmake swig build-essential
+deploy:
+  provider: releases
+  api_key:
+    secure: W9v8LGZtz6Ts+Dha5vkUXE9p4jhJcpbDP5d5wgyG2kd3ixldkEBKUALzotJQ1knKKbcQJfb5SB0pkFXkQJYBLOucG/E5F7jKqC2U7nYxK+PsA2fEdNQ2Z6lBJswHAArvq//ZfpLTTwtv6TfOgny1lHHhLOAw3niWLp9lP2EVVSg=
+  file: 
+    - target/nirvana/nirvana-client/target/nirvana-client-${TRAVIS_TAG}-bin.tar.gz
+    - target/nirvana/nirvana-cloud/target/nirvana-cloud-${TRAVIS_TAG}-bin.tar.gz
+    - target/nirvana/nirvana-storage/target/nirvana-storage-api-${TRAVIS_TAG}-bin.tar.gz
+    - target/nirvana/nirvana-storage/target/nirvana-storage-meta-${TRAVIS_TAG}-bin.tar.gz
+    - target/nirvana/nirvana-storage/target/nirvana-storage-node-${TRAVIS_TAG}-bin.tar.gz
+    - target/nirvana/nirvana-matcher/target/nirvana-matcher-acker-${TRAVIS_TAG}-bin.tar.gz
+    - target/nirvana/nirvana-matcher/target/nirvana-matcher-merger-${TRAVIS_TAG}-bin.tar.gz
+    - target/nirvana/nirvana-matcher/target/nirvana-matcher-processor-${TRAVIS_TAG}-bin.tar.gz
+    - target/nirvana/nirvana-matcher/target/nirvana-matcher-spout-${TRAVIS_TAG}-bin.tar.gz
+    - target/nirvana/nirvana-matcher/target/nirvana-matcher-sync-${TRAVIS_TAG}-bin.tar.gz
+  skip_cleanup: true
+  on:
+    tags: true
+    all_branches: true
