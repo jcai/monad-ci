@@ -1,2 +1,2 @@
-[maven-release-plugin] prepare for next development iteration
- 671eb2371610351edb940c5ef9c04f2dbd075adc
+编译时候调整gcc的编译指令，优化SWIG编译输出
+ 3703491535556a5fb0e49a9c6d1617fe6ec3289e
