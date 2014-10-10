@@ -1,7 +1,4 @@
 language: java
-env:
-  global:
-    secure: Pxe9l7L5gGmfDBZF+nS+bR31CB+rf3okhTosEAJKig/bbVgas8YXlNFfJE53MUBqSKVsBDzg4aX1QtHncWn6pBywM7rwQYRrryak3F1gkDkl4ETSka+ZQNF/abbDkbS0XL2IXdDOG7O5o5eBsKTSe9RgewEAPcKVTs0+n4Wnn/o=
 before_install:
 - openssl aes-256-cbc -K $encrypted_f66994ef8ceb_key -iv $encrypted_f66994ef8ceb_iv
   -in key.txt.enc -out key.txt -d
@@ -17,4 +14,19 @@ before_install:
 - chmod 600 ~/.ssh/id_rsa*
 - eval `ssh-agent -s`
 - ssh-add ~/.ssh/id_rsa
-- echo "machine bitbucket.org\n login $CI_DEPLOY_USERNAME\n password $CI_DEPLOY_PASSWORD\n" >> ~/.netrc
+- sudo apt-get install cmake swig build-essential
+install:
+- sh scripts/clone.sh
+- sh scripts/prepare.sh
+- sh scripts/compile_jni.sh
+- sh scripts/compile_java.sh
+deploy:
+  provider: releases
+  api_key:
+    secure: Vz46E/HexvI1poRgWT8YPo5sWXChlNNGY1HtYlBIxSWPBk4oGAcp6mDMvaANFyqXdeNVHcQR0HoC3KCysJKrEr7Kwhc54X2BCrFMq7sHuSysw9Y8GdFGhxL0kwJt514NgB7QkrzzbjytXKu9X+EcJX/UCtUCaXGq141/RO2k5tk=
+  file: 
+    asdf.targ.gz
+  skip_cleanup: true
+  on:
+    tags: true
+    all_branches: true
