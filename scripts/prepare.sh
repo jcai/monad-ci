@@ -8,7 +8,7 @@ sudo ./b2 cxxflags=-fPIC  --with-thread --with-system link=static threading=mult
 cd -
 #zeromq 
 wget "http://download.zeromq.org/zeromq-3.2.4.tar.gz" -O /tmp/zmq.tar.gz
-tar xfvz /tmp/zmq.tar.gz
+tar xfz /tmp/zmq.tar.gz
 cd zeromq*
 ./configure --with-pic
 make
@@ -33,7 +33,7 @@ cd -
 
 #install protoc
 wget https://protobuf.googlecode.com/svn/rc/protobuf-2.5.0.tar.gz
-tar xfvz protobuf-2.5.0.tar.gz
+tar xfz protobuf-2.5.0.tar.gz
 cd protobuf-2.5.0
 ./configure --with-pic --enable-static
 make
