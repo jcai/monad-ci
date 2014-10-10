@@ -1,2 +1,2 @@
-尝试修正混淆编译错误
- 7558b7aff30e2f0befd0d7fe43f80dc23d83e922
+用proguard的4.8版本
+ e7b17ae2b56fd99969624dea29ce9064ab4e9905
