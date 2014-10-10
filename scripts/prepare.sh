@@ -6,7 +6,7 @@ wget "http://downloads.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.t
 tar xfj /tmp/boost.tar.bz2
 cd boost*
 ./bootstrap.sh
-sudo ./b2 cxxflags=-fPIC  --with-thread --with-system link=static threading=multi  install
+sudo ./b2 cxxflags=-fPIC  --with-thread --with-system link=static threading=multi  install > /tmp/install.log
 cd -
 #zeromq 
 echo "Compling zmq ...."
